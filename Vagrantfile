@@ -67,12 +67,13 @@ Vagrant.configure(2) do |config|
    config.vm.provision "shell", inline: <<-SHELL
      sudo apt-get update
      sudo apt-get upgrade
+     curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
      sudo apt-get install -y nodejs
      sudo ln -s /usr/bin/nodejs /usr/bin/node
      sudo apt-get install -y npm
      sudo npm install npm -g
      sudo npm -g install -y sails
      sudo npm install -g bower
-     sudo aptitude install mysql-server
+     sudo aptitude install mysql-server -y
    SHELL
 end

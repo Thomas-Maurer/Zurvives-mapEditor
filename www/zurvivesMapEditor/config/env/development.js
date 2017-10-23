@@ -11,6 +11,14 @@
  */
 
 module.exports = {
+//Node module isn't accessible, so we must create a custom Middleware to allow
+// our angular2 file to be loaded
+  http: {
+    nodeStatic: function (app) {
+      var express = require('express');
+      app.use('/node_modules', express.static(process.cwd() + '/node_modules'));
+    }
+  }
 
   /***************************************************************************
    * Set the default database connection for models in the development       *
