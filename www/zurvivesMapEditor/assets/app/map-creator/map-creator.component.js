@@ -7,23 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var app_component_1 = require("./app.component");
-var map_creator_component_1 = require("./map-creator/map-creator.component");
-var AppModule = /** @class */ (function () {
-    function AppModule() {
+var MapcreatorComponent = /** @class */ (function () {
+    function MapcreatorComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            declarations: [
-                app_component_1.AppComponent,
-                map_creator_component_1.MapcreatorComponent
-            ],
-            imports: [platform_browser_1.BrowserModule],
-            bootstrap: [app_component_1.AppComponent],
+    MapcreatorComponent = __decorate([
+        core_1.Component({
+            selector: 'map-creator',
+            templateUrl: '/templates/map-creator/map-creator.ejs'
         })
-    ], AppModule);
-    return AppModule;
+    ], MapcreatorComponent);
+    return MapcreatorComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.MapcreatorComponent = MapcreatorComponent;
+//# sourceMappingURL=map-creator.component.js.map

@@ -30,23 +30,18 @@ module.exports.http = {
   *                                                                          *
   ***************************************************************************/
 
-    // order: [
-    //   'startRequestTimer',
-    //   'cookieParser',
-    //   'session',
-    //   'myRequestLogger',
-    //   'bodyParser',
-    //   'handleBodyParserError',
-    //   'compress',
-    //   'methodOverride',
-    //   'poweredBy',
-    //   '$custom',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    //   '404',
-    //   '500'
-    // ],
+     order: [
+       'cookieParser',
+       'session',
+       'bodyParser',
+       'handleBodyParserError',
+       'compress',
+       'poweredBy',
+       '$custom',
+       'router',
+       'www',
+       'favicon'
+     ],
 
   /****************************************************************************
   *                                                                           *
@@ -78,6 +73,7 @@ module.exports.http = {
     // bodyParser: require('skipper')({strict: true})
 
   },
+
 
   /***************************************************************************
   *                                                                          *
