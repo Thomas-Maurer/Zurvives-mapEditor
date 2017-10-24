@@ -29,11 +29,16 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
+  'js/dependencies/jquery/*.js',
+
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  'js/core-js/*.js',
+  'js/zonejs/*.js',
+  'js/reflect-metadata/*.js',
+  'js/systemjs/*.js',
+  'js/bootstrap/*.js'
 ];
 
 
@@ -58,6 +63,8 @@ var templateFilesToInject = [
 
 // Default path for public folder (see documentation for more information)
 var tmpPath = '.tmp/public/';
+var nodePathJS = 'node_modules/bootstrap/dist/js/';
+var nodePathCSS = 'node_modules/bootstrap/dist/css/';
 
 // Prefix relative paths to source files so they point to the proper locations
 // (i.e. where the other Grunt tasks spit them out, or in some cases, where
@@ -83,5 +90,3 @@ module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPat
   }
   return require('path').join('assets/',tplPath);
 });
-
-

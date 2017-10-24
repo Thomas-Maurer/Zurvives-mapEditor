@@ -29,6 +29,7 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
@@ -94,11 +95,13 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery/jquery.js"></script>
+    <script src="/js/core-js/shim.min.js"></script>
+    <script src="/js/zonejs/zone.js"></script>
+    <script src="/js/reflect-metadata/Reflect.js"></script>
+    <script src="/js/systemjs/system.src.js"></script>
+    <script src="/js/bootstrap/bootstrap.bundle.js"></script>
     <!--SCRIPTS END-->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script>
 /**
  * System configuration for Angular 2 samples
@@ -108,9 +111,9 @@
   // map tells the System loader where to look for things
   var map = {
     'app':                        'app', // 'dist',
-    '@angular':                   'node_modules/@angular',
-    'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs'
+    '@angular':                   'js/dependencies/@angular',
+    'angular2-in-memory-web-api': 'js/dependencies/angular2-in-memory-web-api',
+    'rxjs':                       'js/dependencies/rxjs'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {

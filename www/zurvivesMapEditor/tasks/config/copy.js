@@ -25,9 +25,69 @@ module.exports = function(grunt) {
     dev: {
       files: [{
         expand: true,
+        cwd: './node_modules/jquery/dist/',
+        src: ['jquery.js'],
+        dest: '.tmp/public/js/dependencies/jquery'
+      },
+        {
+        expand: true,
         cwd: './assets',
         src: ['**/*.!(coffee|less)'],
         dest: '.tmp/public'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/bootstrap/dist/css',
+        src: ['bootstrap.css'],
+        dest: '.tmp/public/styles/bootstrap'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/bootstrap/dist/js',
+        src: ['bootstrap.bundle.js'],
+        dest: '.tmp/public/js/bootstrap'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/core-js/client/',
+        src: ['shim.min.js'],
+        dest: '.tmp/public/js/core-js/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/zone.js/dist/',
+        src: ['zone.js'],
+        dest: '.tmp/public/js/zonejs/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/reflect-metadata/',
+        src: ['Reflect.js'],
+        dest: '.tmp/public/js/reflect-metadata/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/systemjs/dist/',
+        src: ['system.src.js'],
+        dest: '.tmp/public/js/systemjs/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/@angular/',
+        src: ['**/*.js'],
+        dest: '.tmp/public/js/dependencies/@angular/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/angular2-in-memory-web-api/',
+        src: ['**/*.js'],
+        dest: '.tmp/public/js/dependencies/angular2-in-memory-web-api/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/rxjs/',
+        src: ['**/*.js'],
+        dest: '.tmp/public/js/dependencies/rxjs/'
       }]
     },
     build: {
