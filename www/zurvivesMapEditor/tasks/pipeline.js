@@ -30,6 +30,9 @@ var jsFilesToInject = [
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/jquery/*.js',
+  //'js/dependencies/@angular/**/*.js',
+  //'js/dependencies/angular2-in-memory-web-api/**/*.js',
+  //'js/dependencies/rxjs/**/*.js',
 
 
   // All of the rest of your client-side js files

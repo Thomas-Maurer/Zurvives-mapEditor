@@ -70,24 +70,6 @@ module.exports = function(grunt) {
         cwd: './node_modules/systemjs/dist/',
         src: ['system.src.js'],
         dest: '.tmp/public/js/systemjs/'
-      },
-      {
-        expand: true,
-        cwd: './node_modules/@angular/',
-        src: ['**/*.js'],
-        dest: '.tmp/public/js/dependencies/@angular/'
-      },
-      {
-        expand: true,
-        cwd: './node_modules/angular2-in-memory-web-api/',
-        src: ['**/*.js'],
-        dest: '.tmp/public/js/dependencies/angular2-in-memory-web-api/'
-      },
-      {
-        expand: true,
-        cwd: './node_modules/rxjs/',
-        src: ['**/*.js'],
-        dest: '.tmp/public/js/dependencies/rxjs/'
       }]
     },
     build: {
@@ -96,6 +78,26 @@ module.exports = function(grunt) {
         cwd: '.tmp/public',
         src: ['**/*'],
         dest: 'www'
+      }]
+    },
+    nodeAngular: {
+      files: [{
+        expand: true,
+        cwd: './node_modules/@angular/',
+        src: ['**/*.js'],
+        dest: 'assets/js/dependencies/@angular/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/angular2-in-memory-web-api/',
+        src: ['**/*.js'],
+        dest: 'assets/js/dependencies/angular2-in-memory-web-api/'
+      },
+      {
+        expand: true,
+        cwd: './node_modules/rxjs/',
+        src: ['**/*.js'],
+        dest: 'assets/js/dependencies/rxjs/'
       }]
     }
   });
