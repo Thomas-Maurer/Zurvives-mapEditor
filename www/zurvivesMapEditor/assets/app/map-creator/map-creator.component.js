@@ -14,6 +14,7 @@ var localization_service_1 = require("../localization/localization.service");
 var MapcreatorComponent = /** @class */ (function () {
     function MapcreatorComponent(localizationService) {
         this.localizationService = localizationService;
+        this.localService = localizationService;
         this.labels = [
             {
                 'name': 'mapCreation',
@@ -24,10 +25,15 @@ var MapcreatorComponent = /** @class */ (function () {
                 'value': ''
             }
         ];
-        this.labels.forEach(function (label) {
-            label.value = localizationService.getLabelTrad('fr', label.name);
-        });
     }
+    MapcreatorComponent.prototype.ngOnInit = function () {
+        var localService = this.localService, result;
+        this.labels.forEach(function (label) {
+            localService.getTrad('fr').then(function (data) {
+                label.value = data[label.name];
+            });
+        });
+    };
     MapcreatorComponent = __decorate([
         core_1.Component({
             selector: 'map-creator',

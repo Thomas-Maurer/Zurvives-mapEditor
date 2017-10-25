@@ -17,13 +17,8 @@ var LocalizationService = /** @class */ (function () {
     function LocalizationService(http) {
         this.http = http;
     }
-    LocalizationService.prototype.getLabelTrad = function (localization, label) {
-        var _this = this;
-        this.getTrad(localization).subscribe(function (data) { return _this.results = data; }, function (error) { return console.log(error); });
-        return this.results[label];
-    };
     LocalizationService.prototype.getTrad = function (localization) {
-        return this.http.get(localization).map(function (res) { return res.json(); });
+        return this.http.get('app/localization/' + localization + '.json').map(function (res) { return res.json(); }).toPromise();
     };
     LocalizationService = __decorate([
         core_1.Injectable(),
