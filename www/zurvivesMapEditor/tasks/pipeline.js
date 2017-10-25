@@ -41,7 +41,8 @@ var jsFilesToInject = [
   'js/zonejs/*.js',
   'js/reflect-metadata/*.js',
   'js/systemjs/*.js',
-  'js/bootstrap/*.js'
+  'js/bootstrap/*.js',
+  '**/**/*.ts'
 ];
 
 

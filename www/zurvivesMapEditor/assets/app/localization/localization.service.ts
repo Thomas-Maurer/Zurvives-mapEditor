@@ -16,6 +16,6 @@ export class LocalizationService {
     return this.results[label]
   }
   getTrad(localization:string): Observable<any> {
-    return this.http.get('./' . localization . '.json').map((res:any) => res.json());
+    return this.http.get('./' + localization + '.json').map((res:any) => res.json());
   }
 }
