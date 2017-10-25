@@ -58,5 +58,8 @@
     "url": "git://github.com/vagrant/zurvivesMapEditor.git"
   },
   "author": "vagrant",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "grunt-contrib-sass": "^1.0.0"
+  }
 }

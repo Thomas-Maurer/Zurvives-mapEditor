@@ -16,12 +16,6 @@ module.exports = {
    * Set the default database connection for models in the production        *
    * environment (see config/connections.js and config/models.js )           *
    ***************************************************************************/
-   http: {
-     customMiddleware: function (app) {
-       var express = require('express');
-       app.use('/node_modules', express.static(process.cwd() + '/node_modules'));
-     }
-   }
   // models: {
   //   connection: 'someMysqlServer'
   // },

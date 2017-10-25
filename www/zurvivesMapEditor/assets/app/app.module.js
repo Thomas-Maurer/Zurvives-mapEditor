@@ -8,6 +8,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
+var localization_service_1 = require("./localization/localization.service");
 var app_component_1 = require("./app.component");
 var map_creator_component_1 = require("./map-creator/map-creator.component");
 var AppModule = /** @class */ (function () {
@@ -19,8 +21,9 @@ var AppModule = /** @class */ (function () {
                 app_component_1.AppComponent,
                 map_creator_component_1.MapcreatorComponent
             ],
-            imports: [platform_browser_1.BrowserModule],
+            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
             bootstrap: [app_component_1.AppComponent],
+            providers: [localization_service_1.LocalizationService]
         })
     ], AppModule);
     return AppModule;
