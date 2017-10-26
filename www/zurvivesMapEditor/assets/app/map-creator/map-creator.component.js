@@ -15,23 +15,25 @@ var MapcreatorComponent = /** @class */ (function () {
     function MapcreatorComponent(localizationService) {
         this.localizationService = localizationService;
         this.localService = localizationService;
-        this.labels = [
+        //get the currentUser localisation to know which language we need to use
+        this.currentUserLocalization = 'fr';
+        //All the labels in the template
+        this.labels =
             {
-                'name': 'mapCreation',
-                'value': ''
-            },
-            {
-                'name': 'newMap',
-                'value': ''
-            }
-        ];
+                'mapCreation': '',
+                'newMap': '',
+                'userMenu': '',
+                'dashboard': ''
+            };
     }
     MapcreatorComponent.prototype.ngOnInit = function () {
-        var localService = this.localService, result;
-        this.labels.forEach(function (label) {
-            localService.getTrad('fr').then(function (data) {
-                label.value = data[label.name];
-            });
+        var _this = this;
+        this.localService.getTrad(this.currentUserLocalization).then(function (data) {
+            _this.trad = data;
+            //Go through each labels key to get the translate
+            for (var key in _this.labels) {
+                _this.labels[key] = _this.trad[key];
+            }
         });
     };
     MapcreatorComponent = __decorate([

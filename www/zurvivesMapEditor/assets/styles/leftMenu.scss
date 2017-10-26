@@ -97,6 +97,8 @@ body {
   position: absolute;
   top: 0;
   bottom: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
 .accordion {
   font-size: 14px;
@@ -108,7 +110,6 @@ body {
       display: none;
       &:checked {
         & ~ .content {
-          padding: 15px;
         }
       }
     }

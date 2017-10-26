@@ -1,4 +1,6 @@
 {
   "mapCreation" : "Map Creation",
-  "newMap" : "New Map"
+  "newMap" : "New Map",
+  "userMenu" : "User Menu",
+  "dashboard" : "Dashboard"
 }

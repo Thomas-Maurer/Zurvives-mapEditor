@@ -1,4 +1,6 @@
 {
   "mapCreation" : "Création de Carte",
-  "newMap" : "Nouvelle Carte"
+  "newMap" : "Nouvelle Carte",
+  "userMenu" : "Menu Utilisateur",
+  "dashboard" : "Mon Panel"
 }

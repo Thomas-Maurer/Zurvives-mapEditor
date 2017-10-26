@@ -1,5 +1,5 @@
 
-<div class="left-menu">
+<div class="left-menu col-md-2">
   <div class="logo"><i class="fa fa-align-justify"></i>
     <div>Zurvives</div>
   </div>
@@ -9,9 +9,7 @@
       <label for="section-1"><span>{{labels.mapCreation}}</span></label>
       <div class="content">
         <ul>
-          <li><i class="fa fa-inbox"></i><span>{{labels.newMap}}</span></li>
-          <li><i class="fa fa-share"></i><span>Sent    </span></li>
-          <li><i class="fa fa-archive"></i><span>Archive</span></li>
+          <li><i class="fa fa-globe"></i><span>{{labels.newMap}}</span></li>
         </ul>
       </div>
     </div>
@@ -28,18 +26,11 @@
     </div>
     <div class="section">
       <input type="radio" name="accordion-1" id="section-3" value="toggle"/>
-      <label for="section-3"> <span>Scroller</span></label>
+      <label for="section-3"> <span>{{labels.userMenu}}</span></label>
       <div class="content">
         <ul>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
+          <li><i class="fa fa-user"></i><span>{{labels.dashboard}}</span></li>
           <li><i class="fa fa-coffee"></i><span>Need Coffee    </span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee    </span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee    </span></li>
-          <li><i class="fa fa-coffee"></i><span>Need Coffee</span></li>
         </ul>
       </div>
     </div>
@@ -49,4 +40,7 @@
       <div class="content"></div>
     </div>
   </div>
+</div>
+<div class="col offset-md-2">
+  {{trad | json}}
 </div>

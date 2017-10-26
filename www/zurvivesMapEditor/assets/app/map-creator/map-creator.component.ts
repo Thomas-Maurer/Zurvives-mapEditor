@@ -1,32 +1,37 @@
 import {Component, OnInit, ElementRef} from "@angular/core";
+import { JsonPipe } from '@angular/common';
 import {LocalizationService} from '../localization/localization.service';
 @Component({
     selector: 'map-creator',
     templateUrl: '/templates/map-creator/map-creator.ejs'
 })
 export class MapcreatorComponent implements OnInit{
-  labels : {name: string, value: string}[];
+  labels : {};
   localService : any;
+  trad : {}[];
+  currentUserLocalization : string;
+
   constructor(private localizationService: LocalizationService) {
     this.localService = localizationService;
-    this.labels = [
+    //get the currentUser localisation to know which language we need to use
+    this.currentUserLocalization = 'fr';
+    //All the labels in the template
+    this.labels =
       {
-        'name' : 'mapCreation',
-        'value' : ''
-      },
-      {
-        'name' : 'newMap',
-        'value' : ''
-      }
-    ];
+        'mapCreation' : '',
+        'newMap' : '',
+        'userMenu' : '',
+        'dashboard' : ''
+      };
   }
   ngOnInit() {
-    var localService = this.localService,
-    result;
-    this.labels.forEach(function (label) {
-      localService.getTrad('fr').then((data:any) => {
-        label.value = data[label.name];
+      this.localService.getTrad(this.currentUserLocalization).then((data:any) => {
+        this.trad = data;
+        //Go through each labels key to get the translate
+        for (let key in this.labels)
+        {
+          this.labels[key] = this.trad[key];
+        }
       });
-    })
-  }
+    }
 }
