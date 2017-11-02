@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var localization_service_1 = require("../localization/localization.service");
+var easeljs_1 = require("easeljs");
 var MapcreatorComponent = /** @class */ (function () {
     function MapcreatorComponent(localizationService) {
         this.localizationService = localizationService;
@@ -34,6 +35,17 @@ var MapcreatorComponent = /** @class */ (function () {
             for (var key in _this.labels) {
                 _this.labels[key] = _this.trad[key];
             }
+            //create our canvas
+            var stage = new easeljs_1.createjs.Stage("demoCanvas");
+            //Create a Shape DisplayObject.
+            var circle = new easeljs_1.createjs.Shape();
+            circle.graphics.beginFill("red").drawCircle(0, 0, 40);
+            //Set position of Shape instance.
+            circle.x = circle.y = 50;
+            //Add Shape instance to stage display list.
+            stage.addChild(circle);
+            //Update stage will render next frame
+            stage.update();
         });
     };
     MapcreatorComponent = __decorate([

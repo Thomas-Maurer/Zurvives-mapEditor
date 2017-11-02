@@ -1,5 +1,6 @@
 import {Component, OnInit, ElementRef} from "@angular/core";
 import { JsonPipe } from '@angular/common';
+import 'createjs';
 import {LocalizationService} from '../localization/localization.service';
 @Component({
     selector: 'map-creator',
@@ -7,6 +8,7 @@ import {LocalizationService} from '../localization/localization.service';
 })
 export class MapcreatorComponent implements OnInit{
   labels : {};
+  stage : any;
   localService : any;
   trad : {}[];
   currentUserLocalization : string;
@@ -23,6 +25,7 @@ export class MapcreatorComponent implements OnInit{
         'userMenu' : '',
         'dashboard' : ''
       };
+      
   }
   ngOnInit() {
       this.localService.getTrad(this.currentUserLocalization).then((data:any) => {

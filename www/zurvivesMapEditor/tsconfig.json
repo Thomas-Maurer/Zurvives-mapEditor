@@ -10,9 +10,11 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
+  "files": [
+"node_modules/@types/easeljs/index.d.ts"
+  ],
   "exclude": [
       ".tmp",
-      "node_modules",
       "typings"
   ]
 }

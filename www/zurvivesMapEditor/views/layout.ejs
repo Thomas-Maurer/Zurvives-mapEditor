@@ -96,6 +96,7 @@
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/jquery/jquery.js"></script>
+    <script src="/js/dependencies/easeljs.js"></script>
     <script src="/js/core-js/shim.min.js"></script>
     <script src="/js/zonejs/zone.js"></script>
     <script src="/js/reflect-metadata/Reflect.js"></script>
@@ -114,13 +115,15 @@
     'app':                        'app', // 'dist',
     '@angular':                   'js/dependencies/@angular',
     'angular2-in-memory-web-api': 'js/dependencies/angular2-in-memory-web-api',
-    'rxjs':                       'js/dependencies/rxjs'
+    'rxjs':                       'js/dependencies/rxjs',
+    'easeljs':                    'js/dependencies/'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+    'easeljs':                    { main: 'easeljs.js', defaultExtension: 'js' },
   };
   var ngPackageNames = [
     'common',
