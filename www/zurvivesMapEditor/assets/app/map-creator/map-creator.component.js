@@ -1,4 +1,7 @@
 "use strict";
+//We need to do this to get createjs library working with Typescript
+/// <reference path="../../../node_modules/@types/createjs-lib/index.d.ts"/>
+/// <reference path="../../../node_modules/@types/easeljs/index.d.ts"/>
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11,7 +14,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var localization_service_1 = require("../localization/localization.service");
-var easeljs_1 = require("easeljs");
 var MapcreatorComponent = /** @class */ (function () {
     function MapcreatorComponent(localizationService) {
         this.localizationService = localizationService;
@@ -26,6 +28,9 @@ var MapcreatorComponent = /** @class */ (function () {
                 'userMenu': '',
                 'dashboard': ''
             };
+        this.tile_size = 35;
+        this.grid = [];
+        this.width = 800;
     }
     MapcreatorComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -35,18 +40,47 @@ var MapcreatorComponent = /** @class */ (function () {
             for (var key in _this.labels) {
                 _this.labels[key] = _this.trad[key];
             }
-            //create our canvas
-            var stage = new easeljs_1.createjs.Stage("demoCanvas");
-            //Create a Shape DisplayObject.
-            var circle = new easeljs_1.createjs.Shape();
-            circle.graphics.beginFill("red").drawCircle(0, 0, 40);
-            //Set position of Shape instance.
-            circle.x = circle.y = 50;
-            //Add Shape instance to stage display list.
-            stage.addChild(circle);
-            //Update stage will render next frame
-            stage.update();
         });
+        //create our canvas
+        this.stage = new createjs.Stage("demoCanvas");
+        //Create a Shape DisplayObject.
+        this.displayBoard();
+        //Update stage will render next frame
+        this.stage.update();
+    };
+    MapcreatorComponent.prototype.displayBoard = function () {
+        var x, y = -1;
+        for (var i = 0; i < Math.pow(this.width % this.tile_size, 2); i++) {
+            // counting the top left as (0,0)
+            // left to right each line (then top two bottom from line to line)
+            x++;
+            if (i % this.tile_size == 0) {
+                y++;
+                x = 0;
+            }
+            var tile = new createjs.Shape();
+            //add an event on the tile
+            tile.addEventListener("click", this.handleClick);
+            if (((x + y) % 2) == 1) {
+                tile.graphics.beginFill("black").drawRect(x * this.tile_size, y * this.tile_size, this.tile_size, this.tile_size);
+            }
+            else {
+                tile.graphics.beginFill("#C6CACC").drawRect(x * this.tile_size, y * this.tile_size, this.tile_size, this.tile_size);
+            }
+            this.grid.push(tile);
+            this.stage.addChild(this.grid[i]);
+            this.stage.setChildIndex(tile, i);
+        }
+        this.drawBorder();
+    };
+    MapcreatorComponent.prototype.drawBorder = function () {
+        // Draw the border lines
+        var border = new createjs.Shape();
+        border.graphics.setStrokeStyle(3).beginStroke("black").moveTo(0, 0).lineTo(280, 0).lineTo(280, 280).lineTo(0, 280).lineTo(0, 0).endStroke();
+        this.stage.addChild(border);
+    };
+    MapcreatorComponent.prototype.handleClick = function (event) {
+        console.log(event);
     };
     MapcreatorComponent = __decorate([
         core_1.Component({
